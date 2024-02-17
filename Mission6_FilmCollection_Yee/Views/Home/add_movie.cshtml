@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Add Movie to Collection";
+}
+
+@model Mission6_FilmCollection_Yee.Models.add_movie
+
+<h1>@ViewData["Title"]</h1>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Movie Form</title>
+</head>
+<body>
+
+    <form method="post">
+        @* category *@
+        <label asp-for="Category">Category:</label>
+        <select asp-for="Category" id="Category" name="Category" required>
+            <option value="Drama">Drama</option>
+            <option value="Television">Television</option>
+            <option value="Horror/Suspense">Horror/Suspense</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Action/Adventure">Action/Adventure</option>
+            <option value="Family">Family</option>
+            <option value="VHS">VHS</option>
+            <option value="Miscellaneous">Miscellaneous</option>
+        </select><br><br>
+
+
+        <label asp-for="MovieTitle">Movie Title:</label>
+        <input asp-for="MovieTitle"><br><br>
+
+        <label asp-for="ReleaseYear">Release Year:</label>
+        <input asp-for="ReleaseYear"><br><br>
+
+        <label asp-for="Director">Director:</label>
+        <input asp-for="Director"><br><br>
+
+        @* For the Rating field, use a dropdown menu (G, PG, PG-13, R). *@
+        <label asp-for="Rating">Rating:</label>
+        <select asp-for="Rating"required>
+            <option value="G">G</option>
+            <option value="PG">PG</option>
+            <option value="PG-13">PG-13</option>
+            <option value="R">R</option>
+        </select><br><br>
+        
+        @* For the Edited field, we want that to be a yes/no (true/false) option. *@
+        <label asp-for="Edited">Edited:</label>
+        <input asp-for="Edited" type="radio" id="editedTrue" value="true">
+        <label for="editedTrue">Yes</label>
+        <input asp-for="Edited" type="radio" id="editedFalse" value="false">
+        <label for="editedFalse">No</label><br><br>
+
+
+        <label asp-for="LentTo">Lent To:</label>
+        <input asp-for="LentTo"><br><br>
+
+       @*  Notes should be limited to 25 characters. *@
+        <label asp-for="Notes">Notes:</label>
+        <input asp-for="Notes" maxlength="25"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>
