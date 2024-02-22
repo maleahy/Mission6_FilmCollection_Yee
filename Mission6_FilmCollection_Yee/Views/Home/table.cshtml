@@ -1,0 +1,40 @@
+﻿<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+@{
+    ViewData["Title"] = "Movie Collection";
+}
+
+@model List<Mission6_FilmCollection_Yee.Models.JoelHiltonMovieCollection>
+
+<div class="container mt-3">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Category</th>
+                <th>MovieTitle</th>
+                <th>Release Year</th>
+                <th>Director</th>
+                <th>Rating</th>
+                <th>Edited</th>
+                <th>LentTo</th>
+                <th>CopiedToPlex</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in Model)
+            {
+                <tr>
+                    <td>@movie.CategoryId</td>
+                    <td>@movie.Title</td>
+                    <td>@movie.Year</td>
+                    <td>@movie.Director</td>
+                    <td>@movie.Rating</td>
+                    <td>@movie.Edited</td>
+                    <td>@movie.LentTo</td>
+                    <td>@movie.CopiedToPlex</td>
+                    <td>@movie.Notes</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

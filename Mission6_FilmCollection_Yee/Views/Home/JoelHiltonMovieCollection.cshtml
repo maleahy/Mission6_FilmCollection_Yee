@@ -2,7 +2,7 @@
     ViewData["Title"] = "Add Movie to Collection";
 }
 
-@model Mission6_FilmCollection_Yee.Models.add_movie
+@model Mission6_FilmCollection_Yee.Models.JoelHiltonMovieCollection
 
 <h1>@ViewData["Title"]</h1>
 
@@ -17,24 +17,20 @@
 
     <form method="post">
         @* category *@
-        <label asp-for="Category">Category:</label>
-        <select asp-for="Category" id="Category" name="Category" required>
-            <option value="Drama">Drama</option>
-            <option value="Television">Television</option>
-            <option value="Horror/Suspense">Horror/Suspense</option>
-            <option value="Comedy">Comedy</option>
-            <option value="Action/Adventure">Action/Adventure</option>
-            <option value="Family">Family</option>
-            <option value="VHS">VHS</option>
-            <option value="Miscellaneous">Miscellaneous</option>
+        <label asp-for="CategoryId">Category:</label>
+        <select asp-for="CategoryId" id="CategoryId" name="Category">
+            @foreach (Category c in ViewBag.Categories)
+            {
+                <option value="@c.CategoryId">@c.CategoryName</option>
+            }
         </select><br><br>
 
 
-        <label asp-for="MovieTitle">Movie Title:</label>
-        <input asp-for="MovieTitle"><br><br>
+        <label asp-for="Title">Movie Title:</label>
+        <input asp-for="Title"><br><br>
 
-        <label asp-for="ReleaseYear">Release Year:</label>
-        <input asp-for="ReleaseYear"><br><br>
+        <label asp-for="Year">Release Year:</label>
+        <input asp-for="Year"><br><br>
 
         <label asp-for="Director">Director:</label>
         <input asp-for="Director"><br><br>
@@ -58,6 +54,12 @@
 
         <label asp-for="LentTo">Lent To:</label>
         <input asp-for="LentTo"><br><br>
+
+        <label asp-for="CopiedToPlex">CopiedToPlex:</label>
+        <input asp-for="CopiedToPlex" type="radio" id="CopiedToPlexTrue" value="true">
+        <label for="CopiedToPlexTrue">Yes</label>
+        <input asp-for="CopiedToPlex" type="radio" id="CopiedToPlexFalse" value="false">
+        <label for="CopiedToPlexFalse">No</label><br><br>
 
        @*  Notes should be limited to 25 characters. *@
         <label asp-for="Notes">Notes:</label>
