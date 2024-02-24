@@ -16,12 +16,14 @@
 <body>
 
     <form method="post">
+        <input type="hidden" asp-for="MovieId"/>
+
         @* category *@
         <label asp-for="CategoryId">Category:</label>
         <select asp-for="CategoryId" id="CategoryId" name="Category">
             @foreach (Category c in ViewBag.Categories)
             {
-                <option value="@c.CategoryId">@c.CategoryName</option>
+                <option asp-for="CategoryId" value="@c.CategoryId">@c.CategoryName</option>
             }
         </select><br><br>
 
